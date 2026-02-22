@@ -2,8 +2,6 @@ const totalJobs = [];
 const interviewJobs = [];
 const rejectedJobs = [];
 
-const interviewButton = document.querySelector('.interview-btn');
-const rejectedButton = document.querySelector('.rejected-btn');
 const cardSection = document.getElementById('card-section');
 const allJobs = document.querySelectorAll('.card-all');
 const interviewSection = document.getElementById('interview-section');
@@ -18,16 +16,27 @@ document.querySelector('.interview-job-num').innerText = interviewJobs.length;
 document.querySelector('.rejected-job-num').innerText = rejectedJobs.length;
 
 cardSection.addEventListener('click', (e) => {
-   console.log(e.target.parentNode)
-   const card = e.target.parentNode.parentNode;
-    // const jobsData = {
-    //     title: 
-    // }
+   
+   if (e.target.classList.contains('interview-btn')) {
+     const cardParent = e.target.parentNode.parentNode;
+     const cardTitle = cardParent.querySelector('.card-title').innerText;
+     const cardTitleText = cardParent.querySelector('.card-title-text').innerText;
+     const cardP = cardParent.querySelector('.card-p').innerText;
+     const cardDes = cardParent.querySelector('.card-des').innerText;
+
+     const jobsData = {
+          cardTitle,
+          cardTitleText,
+          cardP,
+          status: 'interview',
+          cardDes,
+     }
+     const isDataExists = interviewJobs.find(item => item.cardTitle === jobsData.cardTitle); 
+     if (!isDataExists) {
+          interviewJobs.push(jobsData);
+     }
+   }
 });
-
-const getJobsData = (data) => {
-
-}
 
 const filterToggle = (id) => {
    if (id === 'interview-filter-btn') {
