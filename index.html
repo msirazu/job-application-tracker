@@ -43,12 +43,13 @@
             </section>
 
             <section id="filter-section" class="flex gap-3">
-                <button class="all-filter-btn btn">All</button>
-                <button class="interview-filter-btn btn">Interview</button>
-                <button class="rejected-filter-btn btn">Rejected</button>
+                <button onclick="filterToggle('all-filter-btn')" id="all-filter-btn" class="btn btn-primary">All</button>
+                <button onclick="filterToggle('interview-filter-btn')" id="interview-filter-btn" class="btn">Interview</button>
+                <button onclick="filterToggle('rejected-filter-btn')" id="rejected-filter-btn" class="btn">Rejected</button>
             </section>
 
-            <section id="no-jobs-section" class="bg-white my-5 rounded-lg p-10 hidden">
+            <section id="interview-section" class="hidden">
+                <div id="no-jobs-section" class="bg-white my-5 rounded-lg p-10">
                 <div class="p-10 space-y-5 flex flex-col justify-center items-center">
                     <img src="./assets/icons/jobs.png"/>
                     <div class="text-center">
@@ -56,9 +57,21 @@
                         <p class="text-sm text-[#64748B]">Check back soon for new job opportunities</p>
                     </div>
                 </div>
+                </div>
+            </section>
+            <section id="rejected-section" class="hidden">
+                <div id="no-jobs-section" class="bg-white my-5 rounded-lg p-10">
+                <div class="p-10 space-y-5 flex flex-col justify-center items-center">
+                    <img src="./assets/icons/jobs.png"/>
+                    <div class="text-center">
+                        <h3 class="text-[#002C5C] font-semibold text-xl">No jobs available</h3>
+                        <p class="text-sm text-[#64748B]">Check back soon for new job opportunities</p>
+                    </div>
+                </div>
+                </div>
             </section>
 
-            <section id="card-section">
+            <section id="card-section" class="all-jobs-section">
 
                 <div class="card-all bg-white my-5 rounded-lg p-3 space-y-5">
                     <div class="flex justify-between items-center">
