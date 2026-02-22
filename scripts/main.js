@@ -18,8 +18,16 @@ document.querySelector('.interview-job-num').innerText = interviewJobs.length;
 document.querySelector('.rejected-job-num').innerText = rejectedJobs.length;
 
 cardSection.addEventListener('click', (e) => {
-   
+   console.log(e.target.parentNode)
+   const card = e.target.parentNode.parentNode;
+    // const jobsData = {
+    //     title: 
+    // }
 });
+
+const getJobsData = (data) => {
+
+}
 
 const filterToggle = (id) => {
    if (id === 'interview-filter-btn') {
