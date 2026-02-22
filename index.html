@@ -11,41 +11,51 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-[#F8FAFC] font-geist">
-    <header class="max-w-[1100px] mx-auto p-2">
+    <header id="header" class="max-w-[1100px] mx-auto p-2">
         <div>
             <h1 class="font-bold text-2xl text-[#002C5C] my-5">Job Application Tracker</h1>
         </div>
         <div class="grid grid-cols-3 gap-5">
             <div class="bg-white p-5">
                 <p class="capitalize">total</p>
-                <p class="total-job-num"></p>
+                <p class="total-job-num text-[#002C5C] font-bold text-xl"></p>
             </div>
             <div class="bg-white p-5">
                 <p class="capitalize">interview</p>
-                <p class="interview-job-num"></p>
+                <p class="interview-job-num text-[#10B981] font-bold text-xl"></p>
             </div>
             <div class="bg-white p-5">
                 <p class="capitalize">rejected</p>
-                <p class="rejected-job-num"></p>
+                <p class="rejected-job-num text-[#EF4444] font-bold text-xl"></p>
             </div>
         </div>
     </header>
 
-    <section class="max-w-[1100px] mx-auto my-2">
+    <section id="hr-section" class="max-w-[1100px] mx-auto my-2">
         <hr class="border-gray-300 border-dashed">
     </section>
 
-    <main class="max-w-[1100px] mx-auto p-2">
+    <main id="main" class="max-w-[1100px] mx-auto p-2">
         <div>
-            <section class="flex justify-between mb-3">
-                <h3 class="capitalize font-semibold">available jobs</h3>
-                <p class="text-[#64748B]"><span>0</span> jobs</p>
+            <section id="available-section" class="flex justify-between mb-3">
+                <h3 class="font-semibold text-[#002C5C] text-xl">Available Jobs</h3>
+                <p class="text-[#64748B]"><span class="latest-available-job">0</span> jobs</p>
             </section>
 
-            <section class="flex gap-3">
-                <button id="all-filter-btn" class="bg-[#3B82F6] text-white py-1 px-5 rounded-sm cursor-pointer">All</button>
-                <button id="interview-filter-btn" class="text-[#64748B] py-1 px-5 rounded-sm cursor-pointer">Interview</button>
-                <button id="rejected-filter-btn" class="text-[#64748B] py-1 px-5 rounded-sm cursor-pointer">Rejected</button>
+            <section id="filter-section" class="flex gap-3">
+                <button class="all-filter-btn btn">All</button>
+                <button class="interview-filter-btn btn">Interview</button>
+                <button class="rejected-filter-btn btn">Rejected</button>
+            </section>
+
+            <section id="no-jobs-section" class="bg-white my-5 rounded-lg p-10 hidden">
+                <div class="p-10 space-y-5 flex flex-col justify-center items-center">
+                    <img src="./assets/icons/jobs.png"/>
+                    <div class="text-center">
+                        <h3 class="text-[#002C5C] font-semibold text-xl">No jobs available</h3>
+                        <p class="text-sm text-[#64748B]">Check back soon for new job opportunities</p>
+                    </div>
+                </div>
             </section>
 
             <section id="card-section">
@@ -270,9 +280,9 @@
             </section>
         </div>
     </main>
-    <footer>
 
-    </footer>
+    <footer id="footer"></footer>
+    
     <script src="./scripts/main.js"></script>
 </body>
 </html>
