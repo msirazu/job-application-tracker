@@ -1,21 +1,22 @@
-const totalJobs = [];
-const interviewJobs = [];
-const rejectedJobs = [];
+let totalJobsList = [];
+let interviewJobsList = [];
+let rejectedJobsList = [];
 
 const cardSection = document.getElementById('card-section');
+const jobContainer = document.getElementById('jobs-container');
 const allJobs = document.querySelectorAll('.card-all');
 const interviewSection = document.getElementById('interview-section');
-   const rejectedSection = document.getElementById('rejected-section');
-   const allJobsSection = document.querySelector('.all-jobs-section');
-   const allFilterButton = document.getElementById('all-filter-btn');
-    const interviewFilterButton = document.getElementById('interview-filter-btn');
-    const rejectedFilterButton = document.getElementById('rejected-filter-btn');
+const rejectedSection = document.getElementById('rejected-section');
+const allJobsSection = document.querySelector('.all-jobs-section');
+const allFilterButton = document.getElementById('all-filter-btn');
+const interviewFilterButton = document.getElementById('interview-filter-btn');
+const rejectedFilterButton = document.getElementById('rejected-filter-btn');
 
 document.querySelector('.total-job-num').innerText = allJobs.length;
-document.querySelector('.interview-job-num').innerText = interviewJobs.length;
-document.querySelector('.rejected-job-num').innerText = rejectedJobs.length;
+document.querySelector('.interview-job-num').innerText = interviewJobsList.length;
+document.querySelector('.rejected-job-num').innerText = rejectedJobsList.length;
 
-cardSection.addEventListener('click', (e) => {
+jobContainer.addEventListener('click', (e) => {
    
    if (e.target.classList.contains('interview-btn')) {
      const cardParent = e.target.parentNode.parentNode;
@@ -31,9 +32,9 @@ cardSection.addEventListener('click', (e) => {
           status: 'interview',
           cardDes,
      }
-     const isDataExists = interviewJobs.find(item => item.cardTitle === jobsData.cardTitle); 
+     const isDataExists = interviewJobsList.find(item => item.cardTitle === jobsData.cardTitle); 
      if (!isDataExists) {
-          interviewJobs.push(jobsData);
+          interviewJobsList.push(jobsData);
      }
    }
 });
