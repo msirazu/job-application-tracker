@@ -10,6 +10,8 @@ const rejectedSection = document.getElementById('rejected-section');
 const allJobsSection = document.querySelector('.all-jobs-section');
 const noJobsInterview = document.getElementById('no-jobs-interview');
 const noJobsRejected = document.getElementById('no-jobs-rejected');
+const interviewCardsContainer = document.getElementById('interview-cards');
+const rejectedCardsContainer = document.getElementById('rejected-cards');
 
 const allFilterButton = document.getElementById('all-filter-btn');
 const interviewFilterButton = document.getElementById('interview-filter-btn');
@@ -85,7 +87,14 @@ jobContainer.addEventListener('click', (e) => {
 });
 
 const renderInterview = () => {
-     interviewSection.innerHTML = '';
+     interviewCardsContainer.innerHTML = '';
+
+     if (interviewJobsList.length === 0) {
+          noJobsInterview.classList.remove('hidden');
+        } else {
+          noJobsInterview.classList.add('hidden');
+        }
+
      for (let iJobs of interviewJobsList) {
           const div = document.createElement('div');
      div.classList.add('card-all', 'bg-white', 'my-5', 'rounded-lg', 'p-3', 'space-y-5');
@@ -111,12 +120,19 @@ const renderInterview = () => {
                         <button class="rejected-btn btn uppercase btn-secondary btn-outline btn-sm">rejected</button>
                     </div>
      `
-     interviewSection.appendChild(div);
+     interviewCardsContainer.appendChild(div);
      }
 }
 
 const renderRejected = () => {
-     rejectedSection.innerHTML = '';
+     rejectedCardsContainer.innerHTML = '';
+
+      if (rejectedJobsList.length === 0) {
+          noJobsRejected.classList.remove('hidden');
+        } else {
+          noJobsRejected.classList.add('hidden');
+        }
+
      for (let rJobs of rejectedJobsList) {
           const div = document.createElement('div');
      div.classList.add('card-all', 'bg-white', 'my-5', 'rounded-lg', 'p-3', 'space-y-5');
@@ -142,7 +158,7 @@ const renderRejected = () => {
                         <button class="rejected-btn btn uppercase btn-secondary btn-outline btn-sm">rejected</button>
                     </div>
      `
-     rejectedSection.appendChild(div);
+     rejectedCardsContainer.appendChild(div);
      }
 }
 
@@ -156,12 +172,6 @@ const filterToggle = (id) => {
         rejectedFilterButton.classList.remove('btn-primary');
         allFilterButton.classList.remove('btn-primary');
 
-        if (interviewJobsList.length === 0) {
-          noJobsInterview.classList.remove('hidden');
-        } else {
-          noJobsInterview.classList.add('hidden');
-        }
-
         document.querySelector('.all-job-span').classList.add('hidden');
         document.querySelector('.rejected-job-span').classList.add('hidden');
         document.querySelector('.interview-job-span').classList.remove('hidden');
@@ -174,12 +184,6 @@ const filterToggle = (id) => {
         rejectedFilterButton.classList.add('btn-primary');
         interviewFilterButton.classList.remove('btn-primary');
         allFilterButton.classList.remove('btn-primary');
-
-        if (rejectedJobsList.length === 0) {
-          noJobsRejected.classList.remove('hidden');
-        } else {
-          noJobsRejected.classList.add('hidden');
-        }
 
         document.querySelector('.all-job-span').classList.add('hidden');
         document.querySelector('.rejected-job-span').classList.remove('hidden');
