@@ -1,10 +1,13 @@
-let totalJobsList = [];
+let totalAvailableJobs = 0;
+let totalInterviewJobs = 0;
+let totalRejectedJobs = 0;
 let interviewJobsList = [];
 let rejectedJobsList = [];
 
 const cardSection = document.getElementById('card-section');
 const jobContainer = document.getElementById('jobs-container');
 const allJobs = document.querySelectorAll('.card-all');
+const availableJobsNum = document.querySelector('.latest-available-job');
 
 const interviewSection = document.getElementById('interview-section');
 const rejectedSection = document.getElementById('rejected-section');
@@ -20,6 +23,9 @@ const calculateCount = () => {
      document.querySelector('.total-job-num').innerText = cardSection.children.length;
      document.querySelector('.interview-job-num').innerText = interviewJobsList.length;
      document.querySelector('.rejected-job-num').innerText = rejectedJobsList.length;
+     document.querySelector('.all-job-span').innerText = cardSection.children.length;
+     document.querySelector('.interview-job-span').innerText = interviewJobsList.length;
+     document.querySelector('.rejected-job-span').innerText = rejectedJobsList.length;
 }
 calculateCount();
 
@@ -160,6 +166,10 @@ const filterToggle = (id) => {
           noJobsInterview.classList.add('hidden');
         }
 
+        document.querySelector('.all-job-span').classList.add('hidden');
+        document.querySelector('.rejected-job-span').classList.add('hidden');
+        document.querySelector('.interview-job-span').classList.remove('hidden');
+
    } else if (id === 'rejected-filter-btn') {
         rejectedSection.classList.remove('hidden');
         interviewSection.classList.add('hidden');
@@ -175,6 +185,10 @@ const filterToggle = (id) => {
           noJobsRejected.classList.add('hidden');
         }
 
+        document.querySelector('.all-job-span').classList.add('hidden');
+        document.querySelector('.rejected-job-span').classList.remove('hidden');
+        document.querySelector('.interview-job-span').classList.add('hidden');
+
    } else {
         rejectedSection.classList.add('hidden');
         interviewSection.classList.add('hidden');
@@ -183,5 +197,9 @@ const filterToggle = (id) => {
         allFilterButton.classList.add('btn-primary');
         rejectedFilterButton.classList.remove('btn-primary');
         interviewFilterButton.classList.remove('btn-primary');
+          
+        document.querySelector('.all-job-span').classList.remove('hidden');
+        document.querySelector('.rejected-job-span').classList.add('hidden');
+        document.querySelector('.interview-job-span').classList.add('hidden');
    }
 }
