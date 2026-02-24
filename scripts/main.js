@@ -105,7 +105,7 @@ const renderInterview = () => {
                     <h4 class="card-title-text text-sm">${iJobs.cardTitleText}</h4>
                     </div>
                     <div>
-                        <button class="delete-btn bg-gray-100 flex justify-center items-center p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
+                        <button class="delete-btn bg-gray-100 flex justify-center items-center p-2 rounded-full hover:bg-gray-300 hover:cursor-pointer">
                         <i class="fa-solid fa-delete-left text-gray-600"></i>
                         </button>
                     </div>
@@ -143,7 +143,7 @@ const renderRejected = () => {
                     <h4 class="card-title-text text-sm">${rJobs.cardTitleText}</h4>
                     </div>
                     <div>
-                        <button class="delete-btn bg-gray-100 flex justify-center items-center p-2 rounded-full hover:bg-gray-200 hover:cursor-pointer">
+                        <button class="delete-btn bg-gray-100 flex justify-center items-center p-2 rounded-full hover:bg-gray-300 hover:cursor-pointer">
                         <i class="fa-solid fa-delete-left text-gray-600"></i>
                         </button>
                     </div>
