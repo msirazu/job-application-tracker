@@ -77,8 +77,8 @@ jobContainer.addEventListener('click', (e) => {
      rejectedJobsList = rejectedJobsList.filter(item => item.cardTitle !== cardTitle)
      parentCard.remove();
      calculateCount();
-     interviewJobsList();
-     rejectedJobsList();
+     renderInterview();
+     renderRejected();
    }
 });
 
@@ -112,6 +112,7 @@ const renderInterview = () => {
      interviewSection.appendChild(div);
      }
 }
+
 const renderRejected = () => {
      rejectedSection.innerHTML = '';
      for (let rJobs of rejectedJobsList) {
