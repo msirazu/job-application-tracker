@@ -1,13 +1,9 @@
-let totalAvailableJobs = 0;
-let totalInterviewJobs = 0;
-let totalRejectedJobs = 0;
 let interviewJobsList = [];
 let rejectedJobsList = [];
 
 const cardSection = document.getElementById('card-section');
 const jobContainer = document.getElementById('jobs-container');
 const allJobs = document.querySelectorAll('.card-all');
-const availableJobsNum = document.querySelector('.latest-available-job');
 
 const interviewSection = document.getElementById('interview-section');
 const rejectedSection = document.getElementById('rejected-section');
