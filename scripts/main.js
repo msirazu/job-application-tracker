@@ -72,8 +72,13 @@ jobContainer.addEventListener('click', (e) => {
      renderInterview();
    } else if (e.target.closest('.delete-btn')) {
      const parentCard = e.target.closest('.card-all');
+     const cardTitle = parentCard.querySelector('.card-title').innerText;
+     interviewJobsList = interviewJobsList.filter(item => item.cardTitle !== cardTitle)
+     rejectedJobsList = rejectedJobsList.filter(item => item.cardTitle !== cardTitle)
      parentCard.remove();
      calculateCount();
+     interviewJobsList();
+     rejectedJobsList();
    }
 });
 
